@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 5de245e332eb66440a9a2ac38c2a4b39
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - star: {fileID: 655558631967726008, guid: e35a102936451c643bcf9bf11e46c490, type: 3}
+  - sphere: {fileID: 3892221413824680117, guid: 5676841f36333e748b371d50a335d4f4,
+      type: 3}
+  - rombo: {fileID: 3291924935972476320, guid: 37a684c2eb1bd4449ab6fd8e58f3e93a, type: 3}
+  - square: {fileID: 3291924935972476320, guid: bc21614bc6f085e4ab89458e9fff0870,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
