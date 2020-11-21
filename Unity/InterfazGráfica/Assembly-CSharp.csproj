@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\AutoSpawner.cs" />
     <Compile Include="Assets\Scripts\Botones.cs" />
     <Compile Include="Assets\Scripts\Despawner.cs" />
+    <Compile Include="Assets\Scripts\FallObjectMovement.cs" />
     <Compile Include="Assets\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Reference Include="UnityEngine">

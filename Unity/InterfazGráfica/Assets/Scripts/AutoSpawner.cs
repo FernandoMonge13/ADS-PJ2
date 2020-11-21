@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class AutoSpawner : MonoBehaviour
 {
-
     public GameObject star;
     public GameObject sphere;
     public GameObject rombo;
@@ -13,16 +12,18 @@ public class AutoSpawner : MonoBehaviour
 
     private void Start()
     {
-        remainingTime = Random.Range(0.5f, 1.0f);
+        remainingTime = Random.Range(1.5f, 3.5f);
     }
 
     void Update()
     {
+
+        remainingTime -= Time.deltaTime;
         
         if (remainingTime < 0)
         {
             int ran = Random.Range(0, 110);
-            if (ran > 99)
+            if (ran > 107)
             {
                 gameObject = star;
             } else if (0 < ran && ran < 33) 
@@ -35,9 +36,9 @@ public class AutoSpawner : MonoBehaviour
             {
                 gameObject = square;
             }
-            Instantiate(gameObject, gameObject.transform.position, gameObject.transform.rotation);
-            remainingTime = Random.Range(0.5f, 1.0f);
+            Vector3 position = new Vector3(Random.Range(-3.5f, 3.5f), 5, 5);
+            Instantiate(gameObject, position, gameObject.transform.rotation);
+            remainingTime = Random.Range(1.5f, 4.5f);
         }
-        remainingTime -= Time.deltaTime;
     }
 }

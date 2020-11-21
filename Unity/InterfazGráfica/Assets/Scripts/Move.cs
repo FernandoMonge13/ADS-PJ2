@@ -30,6 +30,6 @@ public class Move : MonoBehaviour
 
     void Jump()
     {
-
+        this.transform.Translate(Vector3.up * Time.deltaTime);
     }
 }
