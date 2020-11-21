@@ -18,8 +18,6 @@ public class Main {
         tree.deleteNode(5);
         tree.deleteNode(40);*/
         tree.inOrder(tree.root);
-        /*if(tree.searchNode(40) != null){
-            System.out.println("Si esta puto " + tree.searchNode(40).data);
-        }*/
+
     }
 }
