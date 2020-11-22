@@ -113,7 +113,6 @@ public class TwoP : MonoBehaviour
         if (j == 0)
         {
             player1.GetComponent<MeshRenderer>().material = material;
-            Debug.Log(player1.GetComponent<MeshRenderer>().material == material);
         } else
         {
             player2.GetComponent<MeshRenderer>().material = material;
