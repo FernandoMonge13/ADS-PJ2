@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DosJugadores.unity
     guid: 6e930e5fe6e21ff4eaae3f31e438027a
-  - enabled: 0
+  - enabled: 1
     path: "Assets/Scenes/Men\xFA.unity"
     guid: bc44b992a08c32044b700eda4b41954e
+  - enabled: 1
+    path: Assets/Scenes/Seleccion2Jugadores.unity
+    guid: f491b721de607bf46a75063baaf64ebb
   m_configObjects: {}
