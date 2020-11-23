@@ -537,7 +537,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 156}
+  m_AnchoredPosition: {x: 0, y: 108}
   m_SizeDelta: {x: 786.2219, y: 250.363}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1141383024
@@ -617,7 +617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 265, y: -138}
+  m_AnchoredPosition: {x: 269, y: -98}
   m_SizeDelta: {x: 50, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1161378348
@@ -814,7 +814,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -265, y: -138}
+  m_AnchoredPosition: {x: -261, y: -98}
   m_SizeDelta: {x: 50, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1719076390
@@ -1036,20 +1036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e97d4e137ce514aab01721fb2c55b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu:
-    m_Handle: 0
-  select2players:
-    m_Handle: 0
-  play2players:
-    m_Handle: 0
-  select3players:
-    m_Handle: 0
-  play3players:
-    m_Handle: 0
-  select4players:
-    m_Handle: 0
-  play4players:
-    m_Handle: 0
 --- !u!4 &1765962576
 Transform:
   m_ObjectHideFlags: 0
@@ -1100,7 +1086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -138}
+  m_AnchoredPosition: {x: 0, y: -98}
   m_SizeDelta: {x: 50, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1814448781

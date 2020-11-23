@@ -17,8 +17,7 @@ public class TwoP : MonoBehaviour
 
     public GameObject cajaTexto;
 
-    private int selectedMat;
-    private bool selectedMatBool = false;
+    private int[] playersMat = {-1,-1};
 
     public void Start()
     {
@@ -27,61 +26,57 @@ public class TwoP : MonoBehaviour
 
     public void NextL()
     {
-        if (selectedMat == 0 && !selectedMatBool)
+        if (playersMat[0] == -1)
         {
-            selectedMat = 0;
-            selectedMatBool = true;
+            playersMat[0] = 0;
         }
         else {
-            selectedMat += 1;
-            if (selectedMat > 5) { selectedMat = 0; }
+            playersMat[0] += 1;
+            if (playersMat[0] > 5) { playersMat[0] = 0; }
         }
-        CambiarColor(selectedMat, 0);
+        CambiarColor(playersMat[0], 0);
     }
 
     public void NextR()
     {
-        if (selectedMat == 0 && !selectedMatBool)
+        if (playersMat[1] == -1)
         {
-            selectedMat = 0;
-            selectedMatBool = true;
+            playersMat[1] = 0;
         }
         else
         {
-            selectedMat += 1;
-            if (selectedMat > 5) { selectedMat = 0; }
+            playersMat[1] += 1;
+            if (playersMat[1] > 5) { playersMat[1] = 0; }
         }
-        CambiarColor(selectedMat, 1);
+        CambiarColor(playersMat[1], 1);
     }
 
     public void PrevL()
     {
-        if (selectedMat == 0 && !selectedMatBool)
+        if (playersMat[0] == -1)
         {
-            selectedMat = 5;
-            selectedMatBool = true;
+            playersMat[0] = 5;
         }
         else
         {
-            selectedMat -= 1;
-            if (selectedMat < 0) { selectedMat = 5; }
+            playersMat[0] -= 1;
+            if (playersMat[0] < 0) { playersMat[0] = 5; }
         }
-        CambiarColor(selectedMat, 0);
+        CambiarColor(playersMat[0], 0);
     }
 
     public void PrevR()
     {
-        if (selectedMat == 0 && !selectedMatBool)
+        if (playersMat[1] == -1)
         {
-            selectedMat = 5;
-            selectedMatBool = true;
+            playersMat[1] = 5;
         }
         else
         {
-            selectedMat -= 1;
-            if (selectedMat < 0) { selectedMat = 5; }
+            playersMat[1] -= 1;
+            if (playersMat[1] < 0) { playersMat[1] = 5; }
         }
-        CambiarColor(selectedMat, 1);
+        this.CambiarColor(playersMat[1], 1);
     }
 
     private void CambiarColor(int i, int j)
@@ -121,7 +116,8 @@ public class TwoP : MonoBehaviour
 
     public void Jugar()
     {
-        if (player1.GetComponent<MeshRenderer>().material == player2.GetComponent<MeshRenderer>().material)
+        Debug.Log("Valores del array " + playersMat[0] + playersMat[1]);
+        if (playersMat[0] == playersMat[1])
         {
             cajaTexto.SetActive(true);
         } else
