@@ -52,9 +52,10 @@ public class Move : MonoBehaviour
 
     void Jump()
     {
-        Debug.Log("SALTANDO");
-        this.GetComponent<Rigidbody>().AddForce(Vector3.up * 7);
-        
+        if (isGrounded)
+        {
+            this.GetComponent<Rigidbody>().AddForce(Vector3.up * 3000);
+        }
     }
 
     void OnCollisionEnter(Collision other)
@@ -62,6 +63,7 @@ public class Move : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             isGrounded = true;
+            this.GetComponent<Animator>().SetBool("inAir", false);
         }
     }
 
@@ -70,6 +72,7 @@ public class Move : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             isGrounded = false;
+            this.GetComponent<Animator>().SetBool("inAir", true);
         }
     }
 }
