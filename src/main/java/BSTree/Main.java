@@ -11,12 +11,14 @@ public class Main {
 
         tree.inOrder(tree.root);
 
-        tree.searchNode(40);
 
-        tree.deleteNode(8);
-        /*tree.deleteNode(4);
-        tree.deleteNode(5);
-        tree.deleteNode(40);*/
+        tree.delete(8);
+        tree.clear();
+
+        System.out.println("PICHA");
+        tree.inOrder(tree.root);
+        System.out.println("PICHA");
+        tree.insert(40);
         tree.inOrder(tree.root);
 
     }

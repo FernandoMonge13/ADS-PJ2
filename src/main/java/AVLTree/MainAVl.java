@@ -10,8 +10,10 @@ public class MainAVl {
         try1.insert(37);
         try1.insert(13);
         try1.inOrder(try1.getRoot());
-        try1.deleteNodeAVL(8);
-        try1.deleteNodeAVL(9);
+        try1.delete(8);
+        try1.delete(9);
+        try1.clear();
+        try1.insert(13);
         System.out.println("It works");
         try1.inOrder(try1.getRoot());
     }

@@ -40,6 +40,10 @@ public class BinaryTree {
         return root == null;
     }
 
+    public void clear(){
+        root = null;
+    }
+
     public void inOrder(NodeBST root){
         if(root != null){
             inOrder(root.left);
@@ -65,7 +69,7 @@ public class BinaryTree {
         return aux;
     }
 
-    public boolean deleteNode(int data){
+    public boolean delete(int data){
         NodeBST aux = root;
         NodeBST dad = root;
         boolean child = true;
@@ -151,7 +155,6 @@ public class BinaryTree {
             subDad.left = substitution.right;
             substitution.right = nodeS.right;
         }
-        System.out.println("El reemplazo es: " + substitution);
         return substitution;
 
     }

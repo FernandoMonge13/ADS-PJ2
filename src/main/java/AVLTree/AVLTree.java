@@ -28,7 +28,11 @@ public class AVLTree {
 
     }
 
-    public void deleteNodeAVL(int data){
+    public void clear(){
+        root = null;
+    }
+
+    public void delete(int data){
         NodeAVL aux = root;
         NodeAVL dad = root;
         boolean child = true;
