@@ -16,6 +16,9 @@ public class Move : MonoBehaviour
     private bool inAir;
     private bool canSecondJump;
 
+    private CharacterController characterController;
+    private Vector3 movement = Vector3.zero;
+
     bool fall;
 
     private void Start()
@@ -24,6 +27,7 @@ public class Move : MonoBehaviour
         animator = this.GetComponent<Animator>();
         transform = this.GetComponent<Transform>();
         lastPosition = transform.position;
+        characterController = this.GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -53,7 +57,7 @@ public class Move : MonoBehaviour
 
     void Run()
     {
-        if (!inAir)
+        if (characterController.isGrounded)
         {
             if (!animator.GetBool("running")) {
                 Debug.Log("asd");
@@ -119,7 +123,7 @@ public class Move : MonoBehaviour
     {
         if (fall)
         {
-            transform.Translate(Vector3.down * 9.81f * Time.deltaTime);
+            // transform.Translate(Vector3.down * 9.81f * Time.deltaTime);
         }
     }
 
