@@ -64,15 +64,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Objects\character\Animations\Animations.cs" />
-    <Compile Include="Assets\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\AutoSpawner.cs" />
     <Compile Include="Assets\Scripts\Botones.cs" />
     <Compile Include="Assets\Scripts\Despawner.cs" />
-    <Compile Include="Assets\Scripts\FallObjectMovement.cs" />
-    <Compile Include="Assets\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\YRotation.cs" />
+    <Compile Include="Assets\Scripts\movimientos\FallObjectMovement.cs" />
+    <Compile Include="Assets\Scripts\movimientos\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\seleccion\TwoP.cs" />
     <Compile Include="Assets\Scripts\sockets.cs" />
     <Compile Include="Assets\mouseLook.cs" />
