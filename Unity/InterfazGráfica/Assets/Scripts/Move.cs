@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,11 @@ public class Move : MonoBehaviour
     private bool inAir;
     private bool canSecondJump;
 
+    // Moving constants
+    private float speed = 10.0f;
+    private float jump = 20.0f;
+    private float gravity = 9.81f;
+
     private CharacterController characterController;
     private Vector3 movement = Vector3.zero;
 
@@ -23,11 +29,15 @@ public class Move : MonoBehaviour
 
     private void Start()
     {
+        // Components
         rb = this.GetComponent<Rigidbody>();
         animator = this.GetComponent<Animator>();
         transform = this.GetComponent<Transform>();
         lastPosition = transform.position;
         characterController = this.GetComponent<CharacterController>();
+
+        // Dirección de movimiento si es el segundo jugador
+        if (player == 1) { speed = -speed; }
     }
 
     // Update is called once per frame
@@ -52,7 +62,15 @@ public class Move : MonoBehaviour
         }
 
         CheckInAir();
-        
+
+        // Mueve el jugador
+        MoveCharacter();
+    }
+
+    private void MoveCharacter()
+    {
+        movement.y -= gravity * Time.deltaTime;
+        characterController.Move(movement * Time.deltaTime);
     }
 
     void Run()
@@ -60,25 +78,25 @@ public class Move : MonoBehaviour
         if (characterController.isGrounded)
         {
             if (!animator.GetBool("running")) {
-                Debug.Log("asd");
                 animator.SetBool("running", true);
                 animator.SetTrigger("runningT");
             }
 
-            transform.Translate(Vector3.forward * 4 * Time.deltaTime);
+            // movement = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+            movement.x += speed;
         }
     }
 
     void RunBackwards()
     {
-        if (!inAir)
+        if (characterController.isGrounded)
         {
             if (!animator.GetBool("backwards")) { 
                 animator.SetBool("backwards", true);
                 animator.SetTrigger("backwardsT");
             }
 
-            transform.Translate(Vector3.back * Time.deltaTime);
+            movement.x -= speed;
         }
     }
 
@@ -86,7 +104,10 @@ public class Move : MonoBehaviour
     {
         if (inAir || canSecondJump)
         {
-            rb.AddForce(Vector3.up * 3000);
+            // rb.AddForce(Vector3.up * 3000);
+
+            movement.y = jump;
+
             inAir = false;
             animator.SetBool("inAir", true);
             animator.SetTrigger("jump");
@@ -99,6 +120,8 @@ public class Move : MonoBehaviour
     {
         if (animator.GetBool("running")) { animator.SetBool("running", false); }
         if (animator.GetBool("backwards")) { animator.SetBool("backwards", false); }
+
+        if (characterController.isGrounded) { movement.y = 0; }
     }
 
     void ResetTriggers()

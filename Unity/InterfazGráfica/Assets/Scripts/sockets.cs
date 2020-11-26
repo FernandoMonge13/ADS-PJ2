@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class sockets : MonoBehaviour
 {
-    Vector3 movement = Vector3.zero
+    public Text text;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("ola");
+        text.text = "";
     }
 
     // Update is called once per frame

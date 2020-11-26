@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Objects\character\Animations\Animations.cs" />
+    <Compile Include="Assets\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\AutoSpawner.cs" />
     <Compile Include="Assets\Scripts\Botones.cs" />
     <Compile Include="Assets\Scripts\Despawner.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Scripts\YRotation.cs" />
     <Compile Include="Assets\Scripts\seleccion\TwoP.cs" />
     <Compile Include="Assets\Scripts\sockets.cs" />
+    <Compile Include="Assets\mouseLook.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
