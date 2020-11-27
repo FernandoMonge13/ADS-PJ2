@@ -18,6 +18,10 @@ public class SplayTree {
         count = 0;
     }
 
+    public NodeSplay getRoot() {
+        return root;
+    }
+
     // Insert Element
     public void insert(int data){
         NodeSplay aux = root;
