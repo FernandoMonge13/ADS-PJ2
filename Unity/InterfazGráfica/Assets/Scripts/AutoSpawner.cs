@@ -36,9 +36,9 @@ public class AutoSpawner : MonoBehaviour
             {
                 gameObject = square;
             }
-            Vector3 position = new Vector3(Random.Range(-25f, 30f), 45f, 35f);
+            Vector3 position = new Vector3(Random.Range(-25f, 30f), 45f, 38.5f);
             Instantiate(gameObject, position, gameObject.transform.rotation);
-            remainingTime = Random.Range(1.5f, 4.5f);
+            remainingTime = Random.Range(3f, 4.5f);
         }
     }
 }

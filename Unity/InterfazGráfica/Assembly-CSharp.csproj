@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Despawner.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\YRotation.cs" />
+    <Compile Include="Assets\Scripts\checkFallObjectCollition.cs" />
     <Compile Include="Assets\Scripts\movimientos\FallObjectMovement.cs" />
     <Compile Include="Assets\Scripts\movimientos\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\seleccion\TwoP.cs" />
