@@ -21,4 +21,16 @@ public class NodeSplay {
         this.parent = parent;
 
     }
+
+    public int toShow(){
+        return data;
+    }
+
+    public NodeSplay getLeft(){
+        return this.left;
+    }
+
+    public NodeSplay getRight(){
+        return this.right;
+    }
 }

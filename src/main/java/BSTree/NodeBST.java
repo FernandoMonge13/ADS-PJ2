@@ -14,4 +14,12 @@ public class NodeBST {
     public int toShow(){
         return data;
     }
+
+    public NodeBST getLeft(){
+        return this.left;
+    }
+
+    public NodeBST getRight(){
+        return this.right;
+    }
 }
