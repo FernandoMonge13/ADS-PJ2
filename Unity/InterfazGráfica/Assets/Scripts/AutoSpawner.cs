@@ -13,6 +13,7 @@ public class AutoSpawner : MonoBehaviour
     private void Start()
     {
         remainingTime = Random.Range(1.5f, 3.5f);
+        gameObject = square;
     }
 
     void Update()
