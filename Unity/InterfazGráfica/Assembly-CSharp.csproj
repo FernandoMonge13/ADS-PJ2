@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Hola.cs" />
     <Compile Include="Assets\Scripts\AutoSpawner.cs" />
     <Compile Include="Assets\Scripts\Botones.cs" />
     <Compile Include="Assets\Scripts\Despawner.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Scripts\checkFallObjectCollition.cs" />
     <Compile Include="Assets\Scripts\movimientos\FallObjectMovement.cs" />
     <Compile Include="Assets\Scripts\movimientos\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\movimientos\newPlayerMovement.cs" />
     <Compile Include="Assets\Scripts\seleccion\TwoP.cs" />
     <Compile Include="Assets\Scripts\sockets.cs" />
     <Compile Include="Assets\mouseLook.cs" />
