@@ -177,6 +177,5 @@ public class BinaryTree {
         return substitution;
 
     }
-
-
+    
 }
