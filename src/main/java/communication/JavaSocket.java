@@ -1,3 +1,5 @@
+package communication;
+
 import java.net.Socket;
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,7 +8,12 @@ import java.net.ServerSocket;
 
 public class JavaSocket {
 
-    public static void main(String[] args) throws IOException {
+    public void Init (String tree) throws IOException {
+
+        /*Runtime runtime = Runtime.getRuntime();
+        try{
+            Process process = runtime.exec("D:\\Documentos HDD\\Luis\\ADS-PJ2-Luis\\UI\\InterfazGráfica.exe");
+        }catch (Exception exception){}*/
 
         ServerSocket serverSocket = new ServerSocket(3925);
         System.out.println("recieving");
@@ -27,12 +34,13 @@ public class JavaSocket {
 
         // String received message to Object
         Message message = Jason.stringToObject(received_string);
-        System.out.println("Salute: " + message.getSalute());
-
+        System.out.println("Tree: ");
+        System.out.println(message.getTree_print());
 
         //Object to String
-        message.setSalute("HELLO IT´S ME MARIO");
+        message.setTree_print(tree);
         String object_in_string = Jason.objectToString(message);
+
 
         // Sending
         String toSend = object_in_string;

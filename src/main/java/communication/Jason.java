@@ -1,3 +1,5 @@
+package communication;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -10,7 +12,7 @@ public class Jason {
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     /**
-     * It converts a Message Object into a String to send it as a message.
+     * It converts a communication.Message Object into a String to send it as a message.
      *
      * @param message
      * @return message_string
@@ -21,13 +23,13 @@ public class Jason {
             message_string = objectMapper.writeValueAsString(message);
         }
         catch (JsonProcessingException e){
-            logger.log(Level.SEVERE, "Error converting Message object to string");
+            logger.log(Level.SEVERE, "Error converting communication.Message object to string");
         }
         return message_string;
     }
 
     /**
-     * It converts a received message string into a Message object.
+     * It converts a received message string into a communication.Message object.
      *
      * @param message_string
      * @return message
