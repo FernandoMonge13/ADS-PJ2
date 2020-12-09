@@ -1,5 +1,8 @@
 package SplayTree;
 
+import AVLTree.NodeAVL;
+import BSTree.NodeBST;
+
 public class SplayTree {
     private  NodeSplay root;
     private int count = 0;
@@ -234,6 +237,18 @@ public class SplayTree {
             postOrder(r.left);
             postOrder(r.right);
             System.out.print(r.data + " ");
+        }
+    }
+
+    public int nodeCount(NodeSplay node){
+        int c =  1;             //Node itself should be counted
+        if (node == null)
+            return 0;
+        else
+        {
+            c += nodeCount(node.getRight());
+            c += nodeCount(node.getLeft());
+            return c;
         }
     }
 }

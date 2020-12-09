@@ -1,5 +1,7 @@
 package AVLTree;
 
+import BSTree.NodeBST;
+
 public class AVLTree {
 
     private NodeAVL root;
@@ -191,6 +193,18 @@ public class AVLTree {
             postOrder(r.left);
             postOrder(r.right);
             System.out.print(r.data + ", ");
+        }
+    }
+
+    public int nodeCount(NodeAVL node){
+        int c =  1;             //Node itself should be counted
+        if (node == null)
+            return 0;
+        else
+        {
+            c += nodeCount(node.getRight());
+            c += nodeCount(node.getLeft());
+            return c;
         }
     }
 

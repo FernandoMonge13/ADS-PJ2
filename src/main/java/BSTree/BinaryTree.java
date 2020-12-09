@@ -177,5 +177,18 @@ public class BinaryTree {
         return substitution;
 
     }
+
+    public int getDepth(NodeBST node){
+        if (node == null) {
+            return (-1);
+        } else {
+            int leftDepth = getDepth(node.left);
+            int rightDepth = getDepth(node.right);
+            if (leftDepth > rightDepth )
+                return (leftDepth + 1);
+            else
+                return (rightDepth + 1);
+        }
+    }
     
 }
