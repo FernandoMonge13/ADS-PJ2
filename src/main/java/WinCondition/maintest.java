@@ -4,6 +4,7 @@ package WinCondition;
 import BSTree.BinaryTree;
 import Challenges.Generator;
 import Printer.PrinterBST;
+import Timer.Timer;
 import TreeTracker.Tracker;
 
 import java.util.concurrent.TimeUnit;
@@ -31,51 +32,53 @@ public class maintest {
 //
 //            System.out.println(displayMinutes + ":" + secondspassed);
 //        }
-
-        int id = 3;
-        int player = 1;
-        int data = 3;
-
-        Tracker tracker = new Tracker();
-
-
-
-        if (Generator.obtenerInstancia().getCurrentChallenge() == id){
-            if (id == 0){
-                tracker.addNode(player, data, 0);
-            } else if (id == 1){
-                tracker.addNode(player, data, 1);
-            }else if (id == 2){
-                tracker.addNode(player, data, 2);
-            }else if (id == 3){
-                tracker.addNode(player, data, 3);
-            }
-        }
-
-
-
-
+//
+//        int id = 3;
+//        int player = 1;
+//        int data = 3;
+//
+//
+//
+//
+//        if (Generator.obtenerInstancia().getCurrentChallenge() == id){
+//            if (id == 0){
+//                tracker.addNode(player, data, 0);
+//            } else if (id == 1){
+//                tracker.addNode(player, data, 1);
+//            }else if (id == 2){
+//                tracker.addNode(player, data, 2);
+//            }else if (id == 3){
+//                tracker.addNode(player, data, 3);
+//            }
+//        }
+//
+//
+//
+//
 
 
         Generator.obtenerInstancia().setCurrentChallenge(0);
         Generator.obtenerInstancia().setCurrentWinCondition(4);
 
-        tracker.addNode(1, 21, 0);
-        tracker.addNode(1, 43, 0);
-        tracker.addNode(1, 65, 0);
-        tracker.addNode(1, 78, 0);
-        tracker.addNode(1, 23, 0);
-        tracker.addNode(1, 76, 0);
+        Tracker.obtenerInstancia().addNode(1, 21, 0);
+        Tracker.obtenerInstancia().addNode(1, 43, 0);
+        Tracker.obtenerInstancia().addNode(1, 65, 0);
+        Tracker.obtenerInstancia().addNode(1, 78, 0);
+        Tracker.obtenerInstancia().addNode(1, 23, 0);
+        System.out.println(Tracker.obtenerInstancia().addNode(1, 76, 0));
 
-        CheckWin win = new CheckWin();
+        Tracker.obtenerInstancia().addNode(2,54,0);
+        Tracker.obtenerInstancia().addNode(2,64,0);
+        System.out.println(Tracker.obtenerInstancia().addNode(2,1,0));
 
-        System.out.println(win.checkBTSWin(tracker.getBSTP1(), Generator.obtenerInstancia().getCurrentWinCondition()));
-
-        PrinterBST printer = new PrinterBST();
-        printer.GenerateString("", tracker.getBSTP1().getRoot());
-        printer.PrintTree();
+        System.out.println(Tracker.obtenerInstancia().checkWin(2,0));
 
 
+//        Timer timer = new Timer();
+//        Thread t = new Thread(timer);
+//        t.start();
 
+
+//        timer.stop();
     }
 }

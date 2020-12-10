@@ -1,5 +1,7 @@
 package communication;
 
+import TreeTracker.Tracker;
+
 import java.net.Socket;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,6 +38,10 @@ public class JavaSocket {
         Message message = Jason.stringToObject(received_string);
         System.out.println("Tree: ");
         System.out.println(message.getTree_print());
+
+        String msg = Tracker.obtenerInstancia().addNode(message.player, message.new_node, message.id);
+        Boolean result = Tracker.obtenerInstancia().checkWin(message.player, message.id);
+        message.tree_print = msg;
 
         //Object to String
         message.setTree_print(tree);

@@ -30,9 +30,6 @@ public class AVLTree {
 
     }
 
-
-
-
     public void clear(){
         root = null;
     }
@@ -62,7 +59,6 @@ public class AVLTree {
             dad.right = null;
         }
     }
-
 
     // Balance Value
     public int getFe(NodeAVL node){
