@@ -374,7 +374,6 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
 
     @Override
     public int size() {
-        System.out.println(size);
         return size;
     }
 

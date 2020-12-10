@@ -62,14 +62,14 @@ public class Tracker {
     }
 
     public void clearAll(){
-        this.BSTP1 = null;
-        this.BSTP2 = null;
-        this.AVLP1 = null;
-        this.AVLP2 = null;
-        this.BP1 = null;
-        this.BP2 = null;
-        this.SplayP1 = null;
-        this.SplayP2 = null;
+        this.BSTP1.clear();
+        this.BSTP2.clear();
+        this.AVLP1.clear();
+        this.AVLP2.clear();
+        this.BP1.clear();
+        this.BP2.clear();
+        this.SplayP1.clear();
+        this.SplayP2.clear();
     }
 
 
@@ -114,9 +114,11 @@ public class Tracker {
                 switch (Player) {
                     case 1:
                         BP1.add(toAdd);
+                        tree = BP1.toString();
                         break;
                     case 2:
                         BP2.add(toAdd);
+                        tree = BP2.toString();
                         break;
                 }
                 break;
@@ -143,6 +145,7 @@ public class Tracker {
 
     public boolean checkWin(int Player, int id){
         int WinCondition = Generator.obtenerInstancia().getCurrentWinCondition();
+        System.out.println(WinCondition);
         CheckWin win = new CheckWin();
         boolean result = false;
         switch (id) {
@@ -150,32 +153,40 @@ public class Tracker {
                 switch (Player) {
                     case 1:
                         result = win.checkBTSWin(BSTP1, WinCondition);
+                        break;
                     case 2:
                         result =  win.checkBTSWin(BSTP2, WinCondition);
+                        break;
                 }
                 break;
             case 1:
                 switch (Player) {
                     case 1:
                         result =  win.checkAVLWin(AVLP1, WinCondition);
+                        break;
                     case 2:
                         result =  win.checkAVLWin(AVLP2, WinCondition);
+                        break;
                 }
                 break;
             case 2:
                 switch (Player) {
                     case 1:
-
+                        result =  win.checkBWin(BP1, WinCondition);
+                        break;
                     case 2:
-
+                        result =  win.checkBWin(BP2, WinCondition);
+                        break;
                 }
                 break;
             case 3:
                 switch (Player) {
                     case 1:
                         result =  win.checkSplayWin(SplayP1, WinCondition);
+                        break;
                     case 2:
                         result =  win.checkSplayWin(SplayP2, WinCondition);
+                        break;
                 }
                 break;
         }

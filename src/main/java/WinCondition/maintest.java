@@ -58,20 +58,16 @@ public class maintest {
 
 
         Generator.obtenerInstancia().setCurrentChallenge(0);
-        Generator.obtenerInstancia().setCurrentWinCondition(4);
+        Generator.obtenerInstancia().setCurrentWinCondition(6);
 
-        Tracker.obtenerInstancia().addNode(1, 21, 0);
-        Tracker.obtenerInstancia().addNode(1, 43, 0);
-        Tracker.obtenerInstancia().addNode(1, 65, 0);
-        Tracker.obtenerInstancia().addNode(1, 78, 0);
-        Tracker.obtenerInstancia().addNode(1, 23, 0);
-        System.out.println(Tracker.obtenerInstancia().addNode(1, 76, 0));
+        Tracker.obtenerInstancia().addNode(1, 21, 2);
+        Tracker.obtenerInstancia().addNode(1, 43, 2);
+        Tracker.obtenerInstancia().addNode(1, 65, 2);
+        Tracker.obtenerInstancia().addNode(1, 78, 2);
+        Tracker.obtenerInstancia().addNode(1, 23, 2);
 
-        Tracker.obtenerInstancia().addNode(2,54,0);
-        Tracker.obtenerInstancia().addNode(2,64,0);
-        System.out.println(Tracker.obtenerInstancia().addNode(2,1,0));
 
-        System.out.println(Tracker.obtenerInstancia().checkWin(2,0));
+
 
 
 //        Timer timer = new Timer();
