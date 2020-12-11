@@ -31,4 +31,8 @@ public class PrinterBST {
     public void ResetTree(){
         this.txt = "";
     }
+
+    public String getString(){
+        return txt;
+    }
 }

@@ -76,7 +76,7 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
     }
 
 
-    private void split(Node<T> nodeToSplit) {
+        private void split(Node<T> nodeToSplit) {
         Node<T> node = nodeToSplit;
         int numberOfKeys = node.numberOfKeys();
         int medianIndex = numberOfKeys / 2;
@@ -374,7 +374,6 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
 
     @Override
     public int size() {
-        System.out.println(size);
         return size;
     }
 
@@ -661,7 +660,7 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         private static <T extends Comparable<T>> String getString(Node<T> node, String prefix, boolean isTail) {
             StringBuilder builder = new StringBuilder();
 
-            builder.append(prefix).append((isTail ? "└── " : "├── "));
+            builder.append(prefix).append((isTail ? "'--- " : "|--- "));
 
             for (int i = 0; i < node.numberOfKeys(); i++) {
                 T value = node.getKey(i);

@@ -40,7 +40,7 @@ public class Generator {
         } else if (Challenge == 1){
             this.CurrentWinCondition = 6 + rand.nextInt(4);
         } else if (Challenge == 2){
-            //hay que hacerlo
+            this.CurrentWinCondition = 5 + rand.nextInt(3);
         } else {
             this.CurrentWinCondition = 6 + rand.nextInt(4);
         }

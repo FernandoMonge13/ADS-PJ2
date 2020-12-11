@@ -15,7 +15,7 @@ public class NodeAVL {
         this.right = null;
     }
 
-    public int toShow(){
+    public int toShow() {
         return data;
     }
 

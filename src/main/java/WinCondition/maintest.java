@@ -4,8 +4,11 @@ package WinCondition;
 import BSTree.BinaryTree;
 import Challenges.Generator;
 import Printer.PrinterBST;
+import Timer.Timer;
 import TreeTracker.Tracker;
+import communication.JavaSocket;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class maintest {
@@ -31,51 +34,57 @@ public class maintest {
 //
 //            System.out.println(displayMinutes + ":" + secondspassed);
 //        }
-
-        int id = 3;
-        int player = 1;
-        int data = 3;
-
-        Tracker tracker = new Tracker();
-
-
-
-        if (Generator.obtenerInstancia().getCurrentChallenge() == id){
-            if (id == 0){
-                tracker.addNode(player, data, 0);
-            } else if (id == 1){
-                tracker.addNode(player, data, 1);
-            }else if (id == 2){
-                tracker.addNode(player, data, 2);
-            }else if (id == 3){
-                tracker.addNode(player, data, 3);
-            }
-        }
-
-
-
-
+//
+//        int id = 3;
+//        int player = 1;
+//        int data = 3;
+//
+//
+//
+//
+//        if (Generator.obtenerInstancia().getCurrentChallenge() == id){
+//            if (id == 0){
+//                tracker.addNode(player, data, 0);
+//            } else if (id == 1){
+//                tracker.addNode(player, data, 1);
+//            }else if (id == 2){
+//                tracker.addNode(player, data, 2);
+//            }else if (id == 3){
+//                tracker.addNode(player, data, 3);
+//            }
+//        }
+//
+//
+//
+//
 
 
         Generator.obtenerInstancia().setCurrentChallenge(0);
-        Generator.obtenerInstancia().setCurrentWinCondition(4);
+        Generator.obtenerInstancia().setCurrentWinCondition(6);
 
-        tracker.addNode(1, 21, 0);
-        tracker.addNode(1, 43, 0);
-        tracker.addNode(1, 65, 0);
-        tracker.addNode(1, 78, 0);
-        tracker.addNode(1, 23, 0);
-        tracker.addNode(1, 76, 0);
+        while (true) {
 
-        CheckWin win = new CheckWin();
-
-        System.out.println(win.checkBTSWin(tracker.getBSTP1(), Generator.obtenerInstancia().getCurrentWinCondition()));
-
-        PrinterBST printer = new PrinterBST();
-        printer.GenerateString("", tracker.getBSTP1().getRoot());
-        printer.PrintTree();
-
+            try {
+                JavaSocket.Init();
+            } catch (IOException e) {
+                System.out.println("Error in javasocket");
+            }
+        }
+        /*Tracker.obtenerInstancia().addNode(1, 21, 2);
+        Tracker.obtenerInstancia().addNode(1, 43, 2);
+        Tracker.obtenerInstancia().addNode(1, 65, 2);
+        Tracker.obtenerInstancia().addNode(1, 78, 2);
+        Tracker.obtenerInstancia().addNode(1, 23, 2);*/
 
 
+
+
+
+//        Timer timer = new Timer();
+//        Thread t = new Thread(timer);
+//        t.start();
+
+
+//        timer.stop();
     }
 }
