@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
-import java.nio.file.Paths;
 
 public class JavaSocket {
 
@@ -33,7 +32,7 @@ public class JavaSocket {
         // String received message to Object
         Message message = Jason.stringToObject(received_string);
         System.out.println("Tree: ");
-        // System.out.println(message.getTree_print());
+        System.out.println(message.getTree_print());
 
         //Testing...
         if (!message.checkeo) {
