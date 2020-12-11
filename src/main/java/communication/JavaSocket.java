@@ -10,7 +10,7 @@ import java.net.ServerSocket;
 
 public class JavaSocket {
 
-    public static void Init () throws IOException {
+    public static boolean Init () throws IOException {
 
         ServerSocket serverSocket = new ServerSocket(3925);
         System.out.println("receiving");
@@ -63,5 +63,7 @@ public class JavaSocket {
 
         socket.close();
         serverSocket.close();
+
+        return message.exit;
     }
 }
