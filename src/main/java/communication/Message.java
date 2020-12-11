@@ -6,7 +6,9 @@ public class Message {
     public int player;
     public int id;
     public int new_node;
+    public int chellenge;
     public boolean win;
+    public boolean checkeo;
 
     public void setTree_print(String tree_print)
     {
