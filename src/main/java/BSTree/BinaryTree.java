@@ -71,7 +71,7 @@ public class BinaryTree {
         }
     }
 
-    public NodeBST searchNode(int data){
+        public NodeBST searchNode(int data){
         NodeBST aux = root;
 
         while(aux.data != data){

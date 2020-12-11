@@ -6,7 +6,9 @@ import Challenges.Generator;
 import Printer.PrinterBST;
 import Timer.Timer;
 import TreeTracker.Tracker;
+import communication.JavaSocket;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class maintest {
@@ -60,11 +62,19 @@ public class maintest {
         Generator.obtenerInstancia().setCurrentChallenge(0);
         Generator.obtenerInstancia().setCurrentWinCondition(6);
 
-        Tracker.obtenerInstancia().addNode(1, 21, 2);
+        while (true) {
+
+            try {
+                JavaSocket.Init();
+            } catch (IOException e) {
+                System.out.println("Error in javasocket");
+            }
+        }
+        /*Tracker.obtenerInstancia().addNode(1, 21, 2);
         Tracker.obtenerInstancia().addNode(1, 43, 2);
         Tracker.obtenerInstancia().addNode(1, 65, 2);
         Tracker.obtenerInstancia().addNode(1, 78, 2);
-        Tracker.obtenerInstancia().addNode(1, 23, 2);
+        Tracker.obtenerInstancia().addNode(1, 23, 2);*/
 
 
 

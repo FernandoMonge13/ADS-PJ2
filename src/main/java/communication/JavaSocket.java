@@ -10,7 +10,7 @@ import java.net.ServerSocket;
 
 public class JavaSocket {
 
-    public void Init (String tree) throws IOException {
+    public static void Init () throws IOException {
 
         /*Runtime runtime = Runtime.getRuntime();
         try{
@@ -18,7 +18,7 @@ public class JavaSocket {
         }catch (Exception exception){}*/
 
         ServerSocket serverSocket = new ServerSocket(3925);
-        System.out.println("recieving");
+        System.out.println("receiving");
         Socket socket = serverSocket.accept();
         System.out.println("received");
         InputStream inputStream = socket.getInputStream();
@@ -39,12 +39,14 @@ public class JavaSocket {
         System.out.println("Tree: ");
         System.out.println(message.getTree_print());
 
-        String msg = Tracker.obtenerInstancia().addNode(message.player, message.new_node, message.id);
-        Boolean result = Tracker.obtenerInstancia().checkWin(message.player, message.id);
-        message.tree_print = msg;
+        //Testing...
+        message.tree_print = Tracker.obtenerInstancia().addNode(message.player, message.new_node, message.id);
+        message.win = Tracker.obtenerInstancia().checkWin(message.player, message.id);
+        System.out.println(message.tree_print);
+        //Testing...
 
         //Object to String
-        message.setTree_print(tree);
+        //message.setTree_print("tree");//tree var
         String object_in_string = Jason.objectToString(message);
 
 
