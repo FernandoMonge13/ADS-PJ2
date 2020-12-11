@@ -1,0 +1,10 @@
+Mini tutorial
+
+Cada printer es lo mismo, nada más que el tipo de nodo que reciben corresponde a cada tipo de árbol
+
+El GenerateString lo que hace es modificar el string txt que tiene cada objeto para que así quede un texto que al imprirse se forme un arbolito, se le pasa un string
+vacío ("") como primer parametro, y la raiz del árbol como segundo.
+
+PrintTree solo imprime el txt en consola, no creo que funcione para nada
+ResetTree resetea lo que contiene txt, hay que llamarlo cada vez antes de formar otro arbol
+
