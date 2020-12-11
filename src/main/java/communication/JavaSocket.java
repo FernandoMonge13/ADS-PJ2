@@ -7,15 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
+import java.nio.file.Paths;
 
 public class JavaSocket {
 
     public static void Init () throws IOException {
-
-        /*Runtime runtime = Runtime.getRuntime();
-        try{
-            Process process = runtime.exec("D:\\Documentos HDD\\Luis\\ADS-PJ2-Luis\\UI\\InterfazGráfica.exe");
-        }catch (Exception exception){}*/
 
         ServerSocket serverSocket = new ServerSocket(3925);
         System.out.println("receiving");
@@ -37,11 +33,15 @@ public class JavaSocket {
         // String received message to Object
         Message message = Jason.stringToObject(received_string);
         System.out.println("Tree: ");
-        System.out.println(message.getTree_print());
+        // System.out.println(message.getTree_print());
 
         //Testing...
-        message.tree_print = Tracker.obtenerInstancia().addNode(message.player, message.new_node, message.id);
-        message.win = Tracker.obtenerInstancia().checkWin(message.player, message.id);
+        if (!message.checkeo) {
+            message.tree_print = Tracker.obtenerInstancia().addNode(message.player, message.new_node, message.id);
+            message.win = Tracker.obtenerInstancia().checkWin(message.player, message.id);
+        } else {
+            // tiempo de challenge
+        }
         System.out.println(message.tree_print);
         //Testing...
 

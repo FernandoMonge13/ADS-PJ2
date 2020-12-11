@@ -6,7 +6,7 @@ public class Message {
     public int player;
     public int id;
     public int new_node;
-    public int chellenge;
+    public int challenge;
     public boolean win;
     public boolean checkeo;
 

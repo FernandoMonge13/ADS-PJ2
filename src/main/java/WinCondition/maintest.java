@@ -9,6 +9,7 @@ import TreeTracker.Tracker;
 import communication.JavaSocket;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 public class maintest {
@@ -58,6 +59,12 @@ public class maintest {
 //
 //
 
+        Runtime runtime = Runtime.getRuntime();
+        try{
+            String path = Paths.get("").toAbsolutePath().toString();
+            path = path + "\\UI\\InterfazGráfica.exe";
+            Process process = runtime.exec(path);
+        }catch (Exception exception){}
 
         Generator.obtenerInstancia().setCurrentChallenge(0);
         Generator.obtenerInstancia().setCurrentWinCondition(6);
