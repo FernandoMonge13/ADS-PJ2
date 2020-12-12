@@ -14,6 +14,8 @@ public class Timer implements Runnable{
 
     public static boolean challenge = false;
 
+    public static boolean reset = false;
+
     @Override
     public void run() {
         while (running){
@@ -22,12 +24,17 @@ public class Timer implements Runnable{
             while (true) {
                 try {
                     TimeUnit.SECONDS.sleep(1);
-                    challenge = false;
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 long timepassed = System.currentTimeMillis() - starttime;
                 long secondspassed = timepassed / 1000;
+                if (reset){
+                    Generator.obtenerInstancia().generateChallenge();
+                    challenge = true;
+                    secondspassed = 0;
+                    starttime = System.currentTimeMillis();
+                }
                 if (secondspassed == 60) {
                     Generator.obtenerInstancia().generateChallenge();
                     challenge = true;

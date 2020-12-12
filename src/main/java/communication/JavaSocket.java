@@ -37,14 +37,18 @@ public class JavaSocket {
         System.out.println(message.getTree_print());
 
         //Testing...
-        if (Timer.challenge){
-            message.challenge = Generator.obtenerInstancia().getCurrentChallenge();
-            message.winCondition = Generator.obtenerInstancia().getCurrentWinCondition();
-        }
         if (!message.checkeo) {
             message.tree_print = Tracker.obtenerInstancia().addNode(message.player, message.new_node, message.id);
             message.win = Tracker.obtenerInstancia().checkWin(message.player, message.id);
-        } else {
+            if(message.win){
+                Timer.reset = true;
+                message.winner = message.player;
+            }
+        } if (Timer.challenge){
+            message.challenge = Generator.obtenerInstancia().getCurrentChallenge();
+            message.winCondition = Generator.obtenerInstancia().getCurrentWinCondition();
+            Timer.challenge = false;
+        }else {
             // tiempo de challenge
         }
         System.out.println(message.tree_print);
