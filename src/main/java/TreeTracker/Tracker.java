@@ -199,6 +199,51 @@ public class Tracker {
         }
         return result;
     }
+
+    public int checkForcedWin(int id){
+        int WinCondition = Generator.obtenerInstancia().getCurrentWinCondition();
+        CheckWin win = new CheckWin();
+        boolean result1 = false;
+        boolean result2 = false;
+        int winner;
+        while (WinCondition > 0 && !result1 && !result2){
+            switch (id) {
+                case 0:
+                    result1 = win.checkBTSWin(BSTP1, WinCondition);
+                    result2 = win.checkBTSWin(BSTP2, WinCondition);
+                    WinCondition--;
+                    break;
+                case 1:
+                    result1 = win.checkAVLWin(AVLP1, WinCondition);
+                    result2 = win.checkAVLWin(AVLP2, WinCondition);
+                    WinCondition--;
+                    break;
+                case 2:
+                    result1 = win.checkBWin(BP1, WinCondition);
+                    result2 = win.checkBWin(BP2, WinCondition);
+                    WinCondition--;
+                    break;
+                case 3:
+                    result1 = win.checkSplayWin(SplayP1, WinCondition);
+                    result2 = win.checkSplayWin(SplayP2, WinCondition);
+                    WinCondition--;
+                    break;
+            }
+        }
+
+        if ((result1 && result2) || (!result1 && !result2)){
+            winner = 0;
+        } else{
+            if (result1){
+                winner = 1;
+            } else {
+                winner = 2;
+            }
+        }
+
+        return winner;
+    }
+
     public BinaryTree getBSTP1() {
         return BSTP1;
     }

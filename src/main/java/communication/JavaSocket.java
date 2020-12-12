@@ -43,11 +43,15 @@ public class JavaSocket {
             if(message.win){
                 Timer.reset = true;
                 message.winner = message.player;
+                Tracker.obtenerInstancia().clearAll();
             }
         } if (Timer.challenge){
             message.challenge = Generator.obtenerInstancia().getCurrentChallenge();
             message.winCondition = Generator.obtenerInstancia().getCurrentWinCondition();
             Timer.challenge = false;
+            message.win = true;
+            message.winner = Tracker.obtenerInstancia().checkForcedWin(message.id);
+            Tracker.obtenerInstancia().clearAll();
         }else {
             // tiempo de challenge
         }
