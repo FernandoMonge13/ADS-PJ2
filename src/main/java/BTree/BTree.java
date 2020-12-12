@@ -9,9 +9,9 @@ import java.util.Deque;
 public class BTree<T extends Comparable<T>> implements ITree<T> {
 
     private int minKeySize = 1;
-    private int minChildrenSize = minKeySize + 1; // 2
-    private int maxKeySize = 2 * minKeySize; // 2
-    private int maxChildrenSize = maxKeySize + 1; // 3
+    private int minChildrenSize = minKeySize + 1;
+    private int maxKeySize = 2 * minKeySize;
+    private int maxChildrenSize = maxKeySize + 1;
 
     private Node<T> root = null;
     private int size = 0;
@@ -19,6 +19,10 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
 
     public BTree() { }
 
+    /**
+     * Constructor
+     * @param order tree order
+     */
     public BTree(int order) {
         this.minKeySize = order;
         this.minChildrenSize = minKeySize + 1;
@@ -26,6 +30,10 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         this.maxChildrenSize = maxKeySize + 1;
     }
 
+    /**
+     * Add a value to the tree
+     * @param value to add to the tree
+     */
     @Override
     public boolean add(T value) {
         if (root == null) {
@@ -75,8 +83,11 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         return true;
     }
 
-
-        private void split(Node<T> nodeToSplit) {
+    /**
+     * Split an specific node
+     * @param nodeToSplit node to aplit
+     */
+    private void split(Node<T> nodeToSplit) {
         Node<T> node = nodeToSplit;
         int numberOfKeys = node.numberOfKeys();
         int medianIndex = numberOfKeys / 2;
@@ -124,6 +135,11 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         }
     }
 
+    /**
+     * Revome a value from the tree.
+     * @param value to remove from the tree
+     * @return
+     */
     @Override
     public T remove(T value) {
         T removed = null;
@@ -132,6 +148,11 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         return removed;
     }
 
+    /**
+     * @param value to remove
+     * @param node node where remove the value
+     * @return
+     */
     private T remove(T value, Node<T> node) {
         if (node == null) return null;
 
@@ -176,12 +197,20 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         return value;
     }
 
+    /**
+     * Cleans the tree
+     */
     @Override
     public void clear() {
         root = null;
         size = 0;
     }
 
+    /**
+     * Locate a value in the tree
+     * @param value to locate in the tree
+     * @return
+     */
     @Override
     public boolean contains(T value) {
         Node<T> node = getNode(value);
@@ -189,6 +218,10 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
     }
 
 
+    /**
+     * Get a node if an specific value.
+     * @param value of the node
+     */
     private Node<T> getNode(T value) {
         Node<T> node = root;
         while (node != null) {
@@ -248,6 +281,11 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         return node;
     }
 
+    /**
+     * Combine node with a new value
+     * @param node node to convine
+     * @return
+     */
     private boolean combined(Node<T> node) {
         Node<T> parent = node.parent;
         int index = parent.indexOf(node);
@@ -353,6 +391,11 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         return true;
     }
 
+    /**
+     * Index of the prev value
+     * @param node node were is located
+     * @param value value to relate the index
+     */
     private int getIndexOfPreviousValue(Node<T> node, T value) {
         for (int i = 1; i < node.numberOfKeys(); i++) {
             T t = node.getKey(i);
@@ -362,6 +405,11 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         return node.numberOfKeys() - 1;
     }
 
+    /**
+     * Index of the next value
+     * @param node node were is located
+     * @param value value to relate the index
+     */
     private int getIndexOfNextValue(Node<T> node, T value) {
         for (int i = 0; i < node.numberOfKeys(); i++) {
             T t = node.getKey(i);
@@ -371,12 +419,17 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         return node.numberOfKeys() - 1;
     }
 
-
+    /**
+     * @return among of nodes
+     */
     @Override
     public int size() {
         return size;
     }
 
+    /**
+     * If the tree is empty
+     */
     @Override
     public boolean validate() {
         if (root == null) return true;
@@ -384,6 +437,10 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
     }
 
 
+    /**
+     * Validate an specific node
+     * @param node node to validate
+     */
     private boolean validateNode(Node<T> node) {
         int keySize = node.numberOfKeys();
         if (keySize > 1) {
@@ -469,7 +526,10 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         return (new JavaCompatibleBTree<T>(this));
     }
 
-
+    /**
+     * Tree showing process
+     * @return
+     */
     @Override
     public String toString() {
         return TreePrinter.getString(this);
@@ -563,6 +623,10 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
             return -1;
         }
 
+        /**
+         * Add a new child
+         * @param child child to add
+         */
         private boolean addChild(Node<T> child) {
             child.parent = this;
             children[childrenSize++] = child;
@@ -570,6 +634,10 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
             return true;
         }
 
+        /**
+         * Remove a child
+         * @param child child to remove
+         */
         private boolean removeChild(Node<T> child) {
             boolean found = false;
 
@@ -591,6 +659,10 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
             return found;
         }
 
+        /**
+         * Remove a child
+         * @param index index to remove
+         */
         private Node<T> removeChild(int index) {
             if (index >= childrenSize)
                 return null;
@@ -612,6 +684,9 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         }
 
 
+        /**
+         * Tree showing processn
+         */
         @Override
         public String toString() {
             StringBuilder builder = new StringBuilder();
@@ -650,6 +725,9 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
     }
 
 
+    /**
+     * Class to build the tree string vi
+     */
     private static class TreePrinter {
 
         public static <T extends Comparable<T>> String getString(BTree<T> tree) {
@@ -696,12 +774,22 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         }
 
 
+        /**
+         * Add anew value
+         * @param value value to add
+         * @return adding process
+         */
         @Override
         public boolean add(T value) {
             return tree.add(value);
         }
 
 
+        /**
+         * Remove process
+         * @param value
+         * @return
+         */
         @Override
         public boolean remove(Object value) {
             return (tree.remove((T)value)!=null);
@@ -714,6 +802,9 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
         }
 
 
+        /**
+         * @return tree size
+         */
         @Override
         public int size() {
             return tree.size();
@@ -769,6 +860,9 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
             }
 
 
+            /**
+             * Remove action
+             */
             @Override
             public void remove() {
                 if (lastNode!=null && lastValue!=null) {

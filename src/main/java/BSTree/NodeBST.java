@@ -5,6 +5,10 @@ public class NodeBST {
     NodeBST right;
     NodeBST left;
 
+    /**
+     * Node creation
+     * @param data node value
+     */
     public NodeBST(int data){
         this.data =  data;
         this.right = null;
