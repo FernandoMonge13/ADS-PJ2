@@ -37,26 +37,30 @@ public class Tracker {
         if(id == 0){
             if (Player == 1){
                 this.BSTP1 = null;
+                this.BSTP1.clear();
+
             } else if (Player == 2){
                 this.BSTP2 = null;
+                this.BSTP2.clear();
+
             }
         } else if (id == 1) {
             if (Player == 1){
-                this.AVLP1 = null;
+                this.AVLP1.clear();
             } else if (Player == 2){
-                this.AVLP2 = null;
+                this.AVLP2.clear();
             }
         } else if (id == 2) {
             if (Player == 1){
-                this.BP1 = null;
+                this.BP1.clear();
             } else if (Player == 2){
-                this.BP2 = null;
+                this.BP2.clear();
             }
         } else if (id == 3) {
             if (Player == 1){
-                this.SplayP1 = null;
+                this.SplayP1.clear();
             } else if (Player == 2){
-                this.SplayP2 = null;
+                this.SplayP2.clear();
             }
         }
     }
@@ -75,73 +79,78 @@ public class Tracker {
 
     public String addNode(int Player, int toAdd, int id){
         String tree = "";
-        switch (id) {
-            case 0:
-                PrinterBST printer0 = new PrinterBST();
-                switch (Player) {
-                    case 1:
-                        BSTP1.insert(toAdd);
-                        printer0.ResetTree();
-                        printer0.GenerateString("", BSTP1.getRoot());
-                        tree = printer0.getString();
-                        break;
-                    case 2:
-                        BSTP2.insert(toAdd);
-                        printer0.ResetTree();
-                        printer0.GenerateString("", BSTP2.getRoot());
-                        tree = printer0.getString();
-                        break;
-                }
-                break;
-            case 1:
-                PrinterAVL printer1 = new PrinterAVL();
-                switch (Player) {
-                    case 1:
-                        AVLP1.insert(toAdd);
-                        printer1.ResetTree();
-                        printer1.GenerateString("", AVLP1.getRoot());
-                        tree = printer1.getString();
-                        break;
-                    case 2:
-                        AVLP2.insert(toAdd);
-                        printer1.ResetTree();
-                        printer1.GenerateString("", AVLP2.getRoot());
-                        tree = printer1.getString();
-                        break;
-                }
-                break;
-            case 2:
-                switch (Player) {
-                    case 1:
-                        BP1.add(toAdd);
-                        tree = BP1.toString();
-                        break;
-                    case 2:
-                        BP2.add(toAdd);
-                        tree = BP2.toString();
-                        break;
-                }
-                break;
-            case 3:
-                PrinterSplay printer3 = new PrinterSplay();
-                switch (Player) {
-                    case 1:
-                        SplayP1.insert(toAdd);
-                        printer3.ResetTree();
-                        printer3.GenerateString("", SplayP1.getRoot());
-                        tree = printer3.getString();
-                        break;
-                    case 2:
-                        SplayP2.insert(toAdd);
-                        printer3.ResetTree();
-                        printer3.GenerateString("", SplayP2.getRoot());
-                        tree = printer3.getString();
-                        break;
-                }
-                break;
+        if (id == Generator.obtenerInstancia().getCurrentChallenge()){
+            switch (id) {
+                case 0:
+                    PrinterBST printer0 = new PrinterBST();
+                    switch (Player) {
+                        case 1:
+                            BSTP1.insert(toAdd);
+                            printer0.ResetTree();
+                            printer0.GenerateString("", BSTP1.getRoot());
+                            tree = printer0.getString();
+                            break;
+                        case 2:
+                            BSTP2.insert(toAdd);
+                            printer0.ResetTree();
+                            printer0.GenerateString("", BSTP2.getRoot());
+                            tree = printer0.getString();
+                            break;
+                    }
+                    break;
+                case 1:
+                    PrinterAVL printer1 = new PrinterAVL();
+                    switch (Player) {
+                        case 1:
+                            AVLP1.insert(toAdd);
+                            printer1.ResetTree();
+                            printer1.GenerateString("", AVLP1.getRoot());
+                            tree = printer1.getString();
+                            break;
+                        case 2:
+                            AVLP2.insert(toAdd);
+                            printer1.ResetTree();
+                            printer1.GenerateString("", AVLP2.getRoot());
+                            tree = printer1.getString();
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (Player) {
+                        case 1:
+                            BP1.add(toAdd);
+                            tree = BP1.toString();
+                            break;
+                        case 2:
+                            BP2.add(toAdd);
+                            tree = BP2.toString();
+                            break;
+                    }
+                    break;
+                case 3:
+                    PrinterSplay printer3 = new PrinterSplay();
+                    switch (Player) {
+                        case 1:
+                            SplayP1.insert(toAdd);
+                            printer3.ResetTree();
+                            printer3.GenerateString("", SplayP1.getRoot());
+                            tree = printer3.getString();
+                            break;
+                        case 2:
+                            SplayP2.insert(toAdd);
+                            printer3.ResetTree();
+                            printer3.GenerateString("", SplayP2.getRoot());
+                            tree = printer3.getString();
+                            break;
+                    }
+                    break;
+            }
+        } else {
+            clearTree(id, Player);
         }
         return tree;
     }
+
 
     public boolean checkWin(int Player, int id){
         int WinCondition = Generator.obtenerInstancia().getCurrentWinCondition();

@@ -1,5 +1,7 @@
 package communication;
 
+import Challenges.Generator;
+import Timer.Timer;
 import TreeTracker.Tracker;
 
 import java.net.Socket;
@@ -35,6 +37,10 @@ public class JavaSocket {
         System.out.println(message.getTree_print());
 
         //Testing...
+        if (Timer.challenge){
+            message.challenge = Generator.obtenerInstancia().getCurrentChallenge();
+            message.winCondition = Generator.obtenerInstancia().getCurrentWinCondition();
+        }
         if (!message.checkeo) {
             message.tree_print = Tracker.obtenerInstancia().addNode(message.player, message.new_node, message.id);
             message.win = Tracker.obtenerInstancia().checkWin(message.player, message.id);
