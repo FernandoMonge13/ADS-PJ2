@@ -72,7 +72,10 @@ public class maintest {
         while (true) {
 
             try {
-                if (JavaSocket.Init()) { break; }
+                if (JavaSocket.Init()) {
+                    Timer.running = false;
+                    break;
+                }
             } catch (IOException e) {
                 System.out.println("Error in javasocket");
             }

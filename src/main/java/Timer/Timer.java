@@ -6,11 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Timer implements Runnable{
 
-    private boolean running = true;
-
-    public void stop(){
-        this.running = false;
-    }
+    public static boolean running = true;
 
     public static boolean challenge = false;
 
