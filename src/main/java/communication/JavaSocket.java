@@ -41,11 +41,15 @@ public class JavaSocket {
             message.tree_print = Tracker.obtenerInstancia().addNode(message.player, message.new_node, message.id);
             message.win = Tracker.obtenerInstancia().checkWin(message.player, message.id);
             if(message.win){
+                Generator.obtenerInstancia().generateChallenge();
                 Timer.reset = true;
                 message.winner = message.player;
                 Tracker.obtenerInstancia().clearAll();
+                message.challenge = Generator.obtenerInstancia().getCurrentChallenge();
+                message.winCondition = Generator.obtenerInstancia().getCurrentWinCondition();
             }
         } if (Timer.challenge){
+            Generator.obtenerInstancia().generateChallenge();
             message.challenge = Generator.obtenerInstancia().getCurrentChallenge();
             message.winCondition = Generator.obtenerInstancia().getCurrentWinCondition();
             Timer.challenge = false;
