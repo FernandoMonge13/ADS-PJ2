@@ -16,7 +16,6 @@ public class Timer implements Runnable{
     public void run() {
         while (running){
             long starttime = System.currentTimeMillis();
-            System.out.println("Timer:");
             while (true) {
                 try {
                     TimeUnit.SECONDS.sleep(1);
@@ -32,13 +31,11 @@ public class Timer implements Runnable{
                     starttime = System.currentTimeMillis();
                 }
                 if (secondspassed == 60) {
-                    Generator.obtenerInstancia().generateChallenge();
                     challenge = true;
                     secondspassed = 0;
                     starttime = System.currentTimeMillis();
                 }
 
-                System.out.println(secondspassed);
             }
         }
     }

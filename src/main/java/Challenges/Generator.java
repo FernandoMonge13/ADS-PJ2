@@ -36,13 +36,13 @@ public class Generator {
         int Challenge = rand.nextInt(4);
         this.CurrentChallenge = Challenge;
         if (Challenge == 0) {
-            this.CurrentWinCondition = 3 + rand.nextInt(3);
+            this.CurrentWinCondition = 3 + rand.nextInt(4); // 3 a 6 para ganar
         } else if (Challenge == 1){
-            this.CurrentWinCondition = 6 + rand.nextInt(4);
+            this.CurrentWinCondition = 4 + rand.nextInt(3); // 4 a 6 para ganar
         } else if (Challenge == 2){
-            this.CurrentWinCondition = 5 + rand.nextInt(3);
+            this.CurrentWinCondition = 4 + rand.nextInt(3);// 4 a 6 para ganar
         } else {
-            this.CurrentWinCondition = 6 + rand.nextInt(4);
+            this.CurrentWinCondition = 4 + rand.nextInt(3);// 4 a 6 para ganar
         }
     }
 

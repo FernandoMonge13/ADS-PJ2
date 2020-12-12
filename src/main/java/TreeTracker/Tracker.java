@@ -26,6 +26,9 @@ public class Tracker {
     private SplayTree SplayP1 = new SplayTree();
     private SplayTree SplayP2 = new SplayTree();
 
+    private int WinsPlayer1 = 0;
+    private int WinsPlayer2 = 0;
+
     public static synchronized Tracker obtenerInstancia() {
         if (tracker == null) {
             tracker = new Tracker();
@@ -144,7 +147,6 @@ public class Tracker {
             }
         } else {
             clearTree(Generator.obtenerInstancia().getCurrentChallenge(), Player);
-            System.out.println(id+"," +Player);
         }
         return tree;
     }
@@ -152,17 +154,19 @@ public class Tracker {
 
     public boolean checkWin(int Player, int id){
         int WinCondition = Generator.obtenerInstancia().getCurrentWinCondition();
-        System.out.println(WinCondition);
         CheckWin win = new CheckWin();
+        int ganador = 0;
         boolean result = false;
         switch (id) {
             case 0:
                 switch (Player) {
                     case 1:
                         result = win.checkBTSWin(BSTP1, WinCondition);
+                        ganador = 1;
                         break;
                     case 2:
                         result =  win.checkBTSWin(BSTP2, WinCondition);
+                        ganador = 2;
                         break;
                 }
                 break;
@@ -170,9 +174,11 @@ public class Tracker {
                 switch (Player) {
                     case 1:
                         result =  win.checkAVLWin(AVLP1, WinCondition);
+                        ganador = 1;
                         break;
                     case 2:
                         result =  win.checkAVLWin(AVLP2, WinCondition);
+                        ganador = 2;
                         break;
                 }
                 break;
@@ -180,9 +186,11 @@ public class Tracker {
                 switch (Player) {
                     case 1:
                         result =  win.checkBWin(BP1, WinCondition);
+                        ganador = 1;
                         break;
                     case 2:
                         result =  win.checkBWin(BP2, WinCondition);
+                        ganador = 2;
                         break;
                 }
                 break;
@@ -190,12 +198,29 @@ public class Tracker {
                 switch (Player) {
                     case 1:
                         result =  win.checkSplayWin(SplayP1, WinCondition);
+                        ganador = 1;
                         break;
                     case 2:
                         result =  win.checkSplayWin(SplayP2, WinCondition);
+                        ganador = 2;
                         break;
                 }
                 break;
+        }
+        if (result){
+            if (ganador == 1){
+                WinsPlayer1++;
+            } else {
+                WinsPlayer2++;
+            }
+            System.out.println("El jugador ganardor es el numero " + ganador);
+            System.out.println("El jugador 1 lleva un total de " + WinsPlayer1 + "victorias, mientras que el jugador 2 lleva un total de " + WinsPlayer2 + "victorias.");
+
+            Generator.obtenerInstancia().generateChallenge();
+
+            System.out.println("El desafio actual tiene como id:" + Generator.obtenerInstancia().getCurrentChallenge());
+            System.out.println("El numero de nodos o profundidad que es necesario para ganar es de:" + Generator.obtenerInstancia().getCurrentWinCondition());
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
         }
         return result;
     }
