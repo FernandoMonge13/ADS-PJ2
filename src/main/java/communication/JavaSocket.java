@@ -12,12 +12,16 @@ import java.net.ServerSocket;
 
 public class JavaSocket {
 
+    /**
+     * Realiza el protocolo de comunicación entre C# y Java y actualiza todos los datos lógicos del juego
+     *
+     * @return
+     * @throws IOException
+     */
     public static boolean Init () throws IOException {
 
         ServerSocket serverSocket = new ServerSocket(3925);
-        //System.out.println("receiving");
         Socket socket = serverSocket.accept();
-        //System.out.println("received");
         InputStream inputStream = socket.getInputStream();
         OutputStream outputStream = socket.getOutputStream();
 
@@ -29,14 +33,11 @@ public class JavaSocket {
         byte[] receivedBytes = new byte[len];
         inputStream.read(receivedBytes, 0, len);
         String received_string = new String(receivedBytes, 0, len);
-        //System.out.println("Server received: " + received_string);
 
         // String received message to Object
         Message message = Jason.stringToObject(received_string);
-        //System.out.println("Tree: ");
-        //System.out.println(message.getTree_print());
 
-        //Testing...
+        //Appling changes...
         if (!message.checkeo) {
             message.tree_print = Tracker.obtenerInstancia().addNode(message.player, message.new_node, message.id);
             message.win = Tracker.obtenerInstancia().checkWin(message.player, message.id);
