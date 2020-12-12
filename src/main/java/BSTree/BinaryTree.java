@@ -7,7 +7,10 @@ public class BinaryTree {
         root = null;
     }
 
-    //Insert a new node to the tree
+    /**
+     * Insert a new node to the tree
+     * @param data value to insert
+     */
     public void insert(int data){
         NodeBST newNode = new NodeBST(data);
         if(root == null){
@@ -36,15 +39,24 @@ public class BinaryTree {
         }
     }
 
-
+    /**
+     * Cleans the tree
+     */
     public void clear(){
         root = null;
     }
 
+    /**
+     * @return root node
+     */
     public NodeBST getRoot() {
         return root;
     }
 
+    /**
+     * Inorder showing process
+     * @param root root value
+     */
     public void inOrder(NodeBST root){
         if(root != null){
             inOrder(root.left);
@@ -53,6 +65,10 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * Preorder showing process
+     * @param root root value
+     */
     public void preOrder(NodeBST root){
         if (root != null){
             System.out.println(root.data);
@@ -62,6 +78,10 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * Postorder showing process
+     * @param root root value
+     */
     public void postOrder(NodeBST root){
         if (root != null){
             postOrder(root.left);
@@ -88,6 +108,11 @@ public class BinaryTree {
         return aux;
     }
 
+    /**
+     * Delete an specific node
+     * @param data to delete
+     * @return if were deleted
+     */
     public boolean delete(int data){
         NodeBST aux = root;
         NodeBST dad = root;
@@ -157,8 +182,11 @@ public class BinaryTree {
         return true;
     }
 
-    //substitution node
-
+    /**
+     * Substitution node
+     * @param nodeS node to subs
+     * @return node subs
+     */
     public NodeBST getNodeSub(NodeBST nodeS){
         NodeBST subDad = nodeS;
         NodeBST substitution = nodeS;
@@ -178,6 +206,11 @@ public class BinaryTree {
 
     }
 
+    /**
+     * Get tree deep
+     * @param node node to start counting
+     * @return deep value
+     */
     public int getDepth(NodeBST node){
         if (node == null) {
             return (-1);

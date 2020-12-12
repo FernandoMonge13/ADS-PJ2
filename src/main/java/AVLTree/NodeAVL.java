@@ -8,6 +8,10 @@ public class NodeAVL {
     NodeAVL left;
     NodeAVL right;
 
+    /**
+     * Node creation
+     * @param data node value
+     */
     public NodeAVL(int data) {
         this.data = data;
         this.fe = 0;

@@ -6,15 +6,26 @@ public class AVLTree {
 
     private NodeAVL root;
 
+    /**
+     * Constructor
+     */
     public AVLTree() {
         root = null;
     }
 
+    /**
+     * Get root value
+     * @return root node
+     */
     public NodeAVL getRoot(){
         return root;
     }
 
-    // Search node
+    /**
+     * Search node
+     * @param info node info is being searching
+     * @param r where start to search
+     */
     public NodeAVL search (int info, NodeAVL r){
         if (root == null){
             return null;
@@ -30,10 +41,17 @@ public class AVLTree {
 
     }
 
+    /**
+     * Cleans the tree
+     */
     public void clear(){
         root = null;
     }
 
+    /**
+     * Deletes an specific node
+     * @param data node value to delete
+     */
     public void delete(int data){
         NodeAVL aux = root;
         NodeAVL dad = root;
@@ -60,7 +78,11 @@ public class AVLTree {
         }
     }
 
-    // Balance Value
+    /**
+     * Balance Value
+     * @param node node to get the value
+     * @return node valance value
+     */
     public int getFe(NodeAVL node){
         if (node == null){
             return -1;
@@ -69,7 +91,11 @@ public class AVLTree {
         }
     }
 
-    // Single left rotation
+    /**
+     * Single left rotation
+     * @param node node to rotate
+     * @return auxiliary node
+     */
     public NodeAVL leftRotation(NodeAVL node){
         NodeAVL aux = node.left;
         node.left = aux.right;
@@ -79,7 +105,11 @@ public class AVLTree {
         return aux;
     }
 
-    // Single right rotation
+    /**
+     * Single right rotation
+     * @param node node to rotate
+     * @return auxiliary node
+     */
     public NodeAVL rightRotation(NodeAVL node){
         NodeAVL aux = node.right;
         node.right = aux.left;
@@ -89,7 +119,11 @@ public class AVLTree {
         return aux;
     }
 
-    // Double right rotation
+    /**
+     * Double right rotation
+     * @param node node to rotate
+     * @return auxiliary node
+     */
     public NodeAVL leftDoubleRotation(NodeAVL node){
         NodeAVL aux;
         node.left = rightRotation(node.left);
@@ -97,7 +131,11 @@ public class AVLTree {
         return aux;
     }
 
-    // Double left rotation
+    /**
+     * Double left rotation
+     * @param node node to rotate
+     * @return auxiliary node
+     */
     public NodeAVL rightDoubleRotation(NodeAVL node){
         NodeAVL aux;
         node.right = leftRotation(node.right);
@@ -105,6 +143,12 @@ public class AVLTree {
         return aux;
     }
 
+    /**
+     * Insert a node to the tree
+     * @param newNode node to insert
+     * @param subtree subtree of the node
+     * @return dad of that node
+     */
     public NodeAVL insertAVl(NodeAVL newNode, NodeAVL subtree){
         NodeAVL newDad = subtree;
 
@@ -158,6 +202,10 @@ public class AVLTree {
         return newDad;
     }
 
+    /**
+     * Insert a new node value
+     * @param data node value
+     */
     public void insert(int data){
         NodeAVL newNode = new NodeAVL(data);
         if (root == null){
@@ -168,6 +216,10 @@ public class AVLTree {
         }
     }
 
+    /**
+     * Inorder showing process
+     * @param r root value
+     */
     public void inOrder(NodeAVL r){
         if (r != null){
             inOrder(r.left);
@@ -176,6 +228,10 @@ public class AVLTree {
         }
     }
 
+    /**
+     * Preorder showing process
+     * @param r root value
+     */
     public void preOrder(NodeAVL r){
         if (r != null){
             System.out.print(r.data + ", ");
@@ -184,6 +240,10 @@ public class AVLTree {
         }
     }
 
+    /**
+     * Postorder showing process
+     * @param r root value
+     */
     public void postOrder(NodeAVL r){
         if (r != null){
             postOrder(r.left);
@@ -192,8 +252,13 @@ public class AVLTree {
         }
     }
 
+    /**
+     * Node count
+     * @param node node to start counting
+     * @return among of nodes
+     */
     public int nodeCount(NodeAVL node){
-        int c =  1;             //Node itself should be counted
+        int c =  1;
         if (node == null)
             return 0;
         else
