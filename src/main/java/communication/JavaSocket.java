@@ -27,12 +27,10 @@ public class JavaSocket {
         byte[] receivedBytes = new byte[len];
         inputStream.read(receivedBytes, 0, len);
         String received_string = new String(receivedBytes, 0, len);
-        System.out.println("Server received: " + received_string);
+        // System.out.println("Server received: " + received_string);
 
         // String received message to Object
         Message message = Jason.stringToObject(received_string);
-        System.out.println("Tree: ");
-        System.out.println(message.getTree_print());
 
         //Testing...
         if (!message.checkeo) {
@@ -41,7 +39,9 @@ public class JavaSocket {
         } else {
             // tiempo de challenge
         }
-        System.out.println(message.tree_print);
+        if (message.timesUp){
+            System.out.println("Se acabó el tiempo");
+        }
         //Testing...
 
         //Object to String

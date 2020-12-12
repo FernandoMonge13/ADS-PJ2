@@ -7,9 +7,11 @@ public class Message {
     public int id;
     public int new_node;
     public int challenge;
+    public int winner;
     public boolean win;
     public boolean checkeo;
     public boolean exit;
+    public boolean timesUp;
 
     public void setTree_print(String tree_print)
     {

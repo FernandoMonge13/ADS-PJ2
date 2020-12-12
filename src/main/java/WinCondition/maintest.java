@@ -63,7 +63,7 @@ public class maintest {
         try{
             String path = Paths.get("").toAbsolutePath().toString();
             path = path + "\\UI\\InterfazGráfica.exe";
-            Process process = runtime.exec(path);
+            //Process process = runtime.exec(path);
         }catch (Exception exception){}
 
         Generator.obtenerInstancia().setCurrentChallenge(0);
