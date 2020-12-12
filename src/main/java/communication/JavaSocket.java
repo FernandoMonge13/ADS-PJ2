@@ -1,5 +1,7 @@
 package communication;
 
+import Challenges.Generator;
+import Timer.Timer;
 import TreeTracker.Tracker;
 
 import java.net.Socket;
@@ -13,9 +15,9 @@ public class JavaSocket {
     public static boolean Init () throws IOException {
 
         ServerSocket serverSocket = new ServerSocket(3925);
-        System.out.println("receiving");
+        //System.out.println("receiving");
         Socket socket = serverSocket.accept();
-        System.out.println("received");
+        //System.out.println("received");
         InputStream inputStream = socket.getInputStream();
         OutputStream outputStream = socket.getOutputStream();
 
@@ -27,21 +29,39 @@ public class JavaSocket {
         byte[] receivedBytes = new byte[len];
         inputStream.read(receivedBytes, 0, len);
         String received_string = new String(receivedBytes, 0, len);
-        System.out.println("Server received: " + received_string);
+        //System.out.println("Server received: " + received_string);
 
         // String received message to Object
         Message message = Jason.stringToObject(received_string);
-        System.out.println("Tree: ");
-        System.out.println(message.getTree_print());
+        //System.out.println("Tree: ");
+        //System.out.println(message.getTree_print());
 
         //Testing...
         if (!message.checkeo) {
             message.tree_print = Tracker.obtenerInstancia().addNode(message.player, message.new_node, message.id);
             message.win = Tracker.obtenerInstancia().checkWin(message.player, message.id);
-        } else {
+            if(message.win){
+                //Generator.obtenerInstancia().generateChallenge();
+                //Timer.reset = true;
+                message.winner = message.player;
+                Tracker.obtenerInstancia().clearAll();
+                message.challenge = Generator.obtenerInstancia().getCurrentChallenge();
+                message.winCondition = Generator.obtenerInstancia().getCurrentWinCondition();
+                message.tree_print = "";
+                message.win = false;
+            }
+//        } if (Timer.challenge){
+//            Generator.obtenerInstancia().generateChallenge();
+//            message.challenge = Generator.obtenerInstancia().getCurrentChallenge();
+//            message.winCondition = Generator.obtenerInstancia().getCurrentWinCondition();
+//            Timer.challenge = false;
+//            message.win = true;
+//            message.winner = Tracker.obtenerInstancia().checkForcedWin(message.id);
+//            Tracker.obtenerInstancia().clearAll();
+        }else {
             // tiempo de challenge
         }
-        System.out.println(message.tree_print);
+        //System.out.println(message.tree_print);
         //Testing...
 
         //Object to String
