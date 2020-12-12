@@ -59,24 +59,24 @@ public class maintest {
 //
 //
 
-//        Runtime runtime = Runtime.getRuntime();
-//        try{
-//            String path = Paths.get("").toAbsolutePath().toString();
-//            path = path + "\\UI\\InterfazGráfica.exe";
-//            Process process = runtime.exec(path);
-//        }catch (Exception exception){}
-//
-//        Generator.obtenerInstancia().setCurrentChallenge(0);
-//        Generator.obtenerInstancia().setCurrentWinCondition(6);
-//
-//        while (true) {
-//
-//            try {
-//                if (JavaSocket.Init()) { break; }
-//            } catch (IOException e) {
-//                System.out.println("Error in javasocket");
-//            }
-//        }
+        Runtime runtime = Runtime.getRuntime();
+        try{
+            String path = Paths.get("").toAbsolutePath().toString();
+            path = path + "\\UI\\InterfazGráfica.exe";
+            Process process = runtime.exec(path);
+        }catch (Exception exception){}
+
+        Generator.obtenerInstancia().setCurrentChallenge(0);
+        Generator.obtenerInstancia().setCurrentWinCondition(6);
+
+        while (true) {
+
+            try {
+                if (JavaSocket.Init()) { break; }
+            } catch (IOException e) {
+                System.out.println("Error in javasocket");
+            }
+        }
         /*Tracker.obtenerInstancia().addNode(1, 21, 2);
         Tracker.obtenerInstancia().addNode(1, 43, 2);
         Tracker.obtenerInstancia().addNode(1, 65, 2);
@@ -87,9 +87,9 @@ public class maintest {
 
 
 
-        Timer timer = new Timer();
-        Thread t = new Thread(timer);
-        t.start();
+//        Timer timer = new Timer();
+//        Thread t = new Thread(timer);
+//        t.start();
 
 
 //        timer.stop();

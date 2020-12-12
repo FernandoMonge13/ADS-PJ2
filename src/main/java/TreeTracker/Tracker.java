@@ -36,11 +36,8 @@ public class Tracker {
     public void clearTree(int id, int Player){
         if(id == 0){
             if (Player == 1){
-                this.BSTP1 = null;
                 this.BSTP1.clear();
-
             } else if (Player == 2){
-                this.BSTP2 = null;
                 this.BSTP2.clear();
 
             }
@@ -146,7 +143,8 @@ public class Tracker {
                     break;
             }
         } else {
-            clearTree(id, Player);
+            clearTree(Generator.obtenerInstancia().getCurrentChallenge(), Player);
+            System.out.println(id+"," +Player);
         }
         return tree;
     }
