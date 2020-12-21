@@ -15,16 +15,12 @@ import java.util.concurrent.TimeUnit;
 public class maintest {
     public static void main(String args[]) throws InterruptedException {
 
-
-        Runtime runtime = Runtime.getRuntime();
-        try{
-            String path = Paths.get("").toAbsolutePath().toString();
-            path = path + "\\UI\\InterfazGráfica.exe";
-            Process process = runtime.exec(path);
-        }catch (Exception exception){}
-
-        //Generator.obtenerInstancia().setCurrentChallenge(0);
-        //Generator.obtenerInstancia().setCurrentWinCondition(6);
+//        Runtime runtime = Runtime.getRuntime();
+//        try{
+//            String path = Paths.get("").toAbsolutePath().toString();
+//            path = path + "\\UI\\InterfazGráfica.exe";
+//            Process process = runtime.exec(path);
+//        }catch (Exception exception){}
 
         try {
             if (JavaSocket.Init()) {
@@ -32,9 +28,6 @@ public class maintest {
             Timer timer  = new Timer();
             Thread t = new Thread(timer);
             t.start();
-            //Generator.obtenerInstancia().generateChallenge();
-            //System.out.println(Generator.obtenerInstancia().getCurrentChallenge());
-            //System.out.println(Generator.obtenerInstancia().getCurrentWinCondition());
             Generator.obtenerInstancia().setCurrentWinCondition(2);
             Generator.obtenerInstancia().setCurrentChallenge(0);
 

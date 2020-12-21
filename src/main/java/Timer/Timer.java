@@ -1,17 +1,19 @@
 package Timer;
-
 import Challenges.Generator;
-
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Marco Rodriguez
+ * @version 1.0
+ */
 public class Timer implements Runnable{
-
     public static boolean running = true;
-
     public static boolean challenge = false;
-
     public static boolean reset = false;
 
+    /**
+     * Funcion que inicia para empezar el cronometro
+     */
     @Override
     public void run() {
         while (running){
@@ -30,10 +32,14 @@ public class Timer implements Runnable{
                     secondspassed = 0;
                     starttime = System.currentTimeMillis();
                 }
-                if (secondspassed == 60) {
-                    challenge = true;
-                    secondspassed = 0;
-                    starttime = System.currentTimeMillis();
+                if (secondspassed == 300) {
+                    try{
+                        Runtime runtime = Runtime.getRuntime();
+                        runtime.exec("Taskkill /IM InterfazGráfica.exe /F");
+                    }
+                    catch (Exception e){
+                        System.out.println("error");
+                    }
                 }
 
             }

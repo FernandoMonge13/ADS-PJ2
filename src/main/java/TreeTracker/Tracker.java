@@ -10,6 +10,10 @@ import Printer.PrinterSplay;
 import SplayTree.SplayTree;
 import WinCondition.CheckWin;
 
+/**
+ * @author Marco Rodriguez
+ * @version 1.0
+ */
 public class Tracker {
     static Tracker tracker;
 
@@ -19,7 +23,6 @@ public class Tracker {
     private AVLTree AVLP1 = new AVLTree();
     private AVLTree AVLP2 = new AVLTree();
 
-    //No se que esta pasando aqui
     private BTree BP1 = new BTree();
     private BTree BP2 = new BTree();
 
@@ -29,6 +32,10 @@ public class Tracker {
     private int WinsPlayer1 = 0;
     private int WinsPlayer2 = 0;
 
+    /**
+     * Singleton
+     * @return Retorna la instancia estatica del singleton
+     */
     public static synchronized Tracker obtenerInstancia() {
         if (tracker == null) {
             tracker = new Tracker();
@@ -36,6 +43,11 @@ public class Tracker {
         return tracker;
     }
 
+    /**
+     * Funcion que se encarga de limpiar el arbol de un jugador en especifico
+     * @param id Clase de arbol a limpiar
+     * @param Player Jugador cuyo arbol debe de ser limpiado
+     */
     public void clearTree(int id, int Player){
         if(id == 0){
             if (Player == 1){
@@ -65,6 +77,9 @@ public class Tracker {
         }
     }
 
+    /**
+     * Funcion que se encarga de limpiar todos los arboles
+     */
     public void clearAll(){
         this.BSTP1.clear();
         this.BSTP2.clear();
@@ -76,7 +91,13 @@ public class Tracker {
         this.SplayP2.clear();
     }
 
-
+    /**
+     * Funcion que se encarga de añadir un nodo a un jugador especifico y su arbol
+     * @param Player Jugador al cual se le debe de añadir el nodo
+     * @param toAdd Valor a añadir
+     * @param id Tipo de arbol
+     * @return El String que muestra el árbol gráficamente actualizado
+     */
     public String addNode(int Player, int toAdd, int id){
         String tree = "";
         if (id == Generator.obtenerInstancia().getCurrentChallenge()){
@@ -151,7 +172,12 @@ public class Tracker {
         return tree;
     }
 
-
+    /**
+     * Funcion que se encarga de verificar si un jugador a ganado el desafio
+     * @param Player Jugador a verificar
+     * @param id Id del arbol a verificar
+     * @return Valor booleano correspondiente a si cumplio con el desafio o no
+     */
     public boolean checkWin(int Player, int id){
         int WinCondition = Generator.obtenerInstancia().getCurrentWinCondition();
         CheckWin win = new CheckWin();
@@ -214,17 +240,22 @@ public class Tracker {
                 WinsPlayer2++;
             }
             System.out.println("El jugador ganardor es el numero " + ganador);
-            System.out.println("El jugador 1 lleva un total de " + WinsPlayer1 + "victorias, mientras que el jugador 2 lleva un total de " + WinsPlayer2 + "victorias.");
+            System.out.println("El jugador 1 lleva un total de " + WinsPlayer1 + " victorias, mientras que el jugador 2 lleva un total de " + WinsPlayer2 + " victorias.");
 
             Generator.obtenerInstancia().generateChallenge();
 
-            System.out.println("El desafio actual tiene como id:" + Generator.obtenerInstancia().getCurrentChallenge());
-            System.out.println("El numero de nodos o profundidad que es necesario para ganar es de:" + Generator.obtenerInstancia().getCurrentWinCondition());
+            System.out.println("El desafio actual tiene como id: " + Generator.obtenerInstancia().getCurrentChallenge());
+            System.out.println("El numero de nodos o profundidad que es necesario para ganar es de: " + Generator.obtenerInstancia().getCurrentWinCondition());
             System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
         }
         return result;
     }
 
+    /**
+     * Funcion que se encarga de averiguar cual jugador estaba mas cercano a completar el desafio
+     * @param id Id del arbol a comparar
+     * @return Cual jugador estaba mas cercano a ganar
+     */
     public int checkForcedWin(int id){
         int WinCondition = Generator.obtenerInstancia().getCurrentWinCondition();
         CheckWin win = new CheckWin();
@@ -268,6 +299,11 @@ public class Tracker {
 
         return winner;
     }
+
+    /**
+     * Todas las demas funciones vienen a ser los sets y gets
+     * de todos los parametros.
+     */
 
     public BinaryTree getBSTP1() {
         return BSTP1;

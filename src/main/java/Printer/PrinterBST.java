@@ -1,21 +1,27 @@
 package Printer;
 
-import BSTree.BinaryTree;
 import BSTree.NodeBST;
 
-import java.util.ArrayList;
-import java.util.List;
 
+
+/**
+ * @author Marco Rodriguez
+ * @version 1.0
+ */
 public class PrinterBST {
     private String txt = "";
 
+    /**
+     * Funcion encargada de generar los strings para mostrar los arboles en pantalla
+     * @param prefix String a concatenar
+     * @param n Raiz del arbol del cual se desea la representacion grafica
+     */
     public void GenerateString(String prefix, NodeBST n) {
         if (n != null) {
             if (n.getRight() != null){
                 GenerateString(prefix + "    |", n.getRight());
            }
 
-            //System.out.println (prefix + ("|-- ") + n.toShow());
             txt += prefix + ("|-- ") + n.toShow() + "\n";
 
             if (n.getLeft() != null){
@@ -24,14 +30,18 @@ public class PrinterBST {
         }
     }
 
-    public void PrintTree(){
-        System.out.println(txt);
-    }
 
+    /**
+     * Resetea el valor del string para poder generar otro arbol
+     */
     public void ResetTree(){
         this.txt = "";
     }
 
+    /**
+     * Funcion para obtener la representacion grafica del arbol
+     * @return El string a mostrar
+     */
     public String getString(){
         return txt;
     }
